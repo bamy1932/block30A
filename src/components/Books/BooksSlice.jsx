@@ -11,7 +11,23 @@ const booksApi = api.injectEndpoints({
       }),
       providesTags: ["Book"],
     }),
+
+    updateBook: builder.mutation({
+      query: ({ id, available }) => ({
+        url: `/books/${id}`,
+        method: "PATCH",
+        body: JSON.stringify({ available }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        transformResponse: (response) => response.data.books,
+        transformErrorResponse: (response) => response.data.error,
+      }),
+
+      invalidatesTags: ["Book"],
+    }),
   }),
 });
 
-export const { useGetBooksQuery } = booksApi;
+export const { useGetBooksQuery, useUpdateBookMutation } = booksApi;

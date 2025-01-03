@@ -1,11 +1,9 @@
 /* TODO - add your code to create a functional React component that renders a navigation bar for the different views in your single page application. You may consider conditionally rendering some options - for example 'Login' should be available if someone has not logged in yet. */
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-// action generators
 import { getLogin } from "../app/confirmLoginSlice";
 
 export default function NavBar({ token }) {
-  const auth = localStorage.getItem("token");
   const auth2 = useSelector(getLogin);
 
   const logout = () => {

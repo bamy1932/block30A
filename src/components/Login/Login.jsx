@@ -1,11 +1,7 @@
-/* TODO - add your code to create a functional React component that renders a login form */
-import React from "react";
 import { useLoginMutation } from "./LoginSlice";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-
-// action generators
 import { confirmLogin } from "../../app/confirmLoginSlice";
 
 export default function Login({ setToken }) {
@@ -22,19 +18,17 @@ export default function Login({ setToken }) {
 
     try {
       const result = await loginUser({ email, password }).unwrap();
-      console.log(result);
       if (result.error) {
-        console.log(error);
+        console.error(error);
+        setError(error);
       } else {
-        //localStorage.setItem("token", result.token);
         dispatch(confirmLogin());
         navigate("/account");
-        //console.log("This is localStorage", localStorage);
       }
 
       setSuccessMessage(result.message);
     } catch (error) {
-      setError(error.message);
+      setError(error);
       console.error(error);
     }
   }
@@ -75,6 +69,7 @@ export default function Login({ setToken }) {
             <tr>
               <td colSpan={2}>
                 <button className="submitbutton">Submit</button>
+                {error && <p className="error">{error.data.message}</p>}
               </td>
             </tr>
           </tbody>

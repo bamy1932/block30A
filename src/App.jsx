@@ -10,7 +10,6 @@ import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function App() {
   const [token, setToken] = useState(null);
-  const [selectedBookId, setSelectedBookId] = useState();
 
   return (
     <>

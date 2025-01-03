@@ -1,26 +1,33 @@
-/* TODO - add your code to create a functional React component that renders details for a single book. Fetch the book data from the provided API. You may consider conditionally rendering a 'Checkout' button for logged in users. */
+
 import { useEffect, useState } from "react";
 import { useGetBookQuery } from "./SingleBookSlice";
 import { useParams, useNavigate } from "react-router-dom";
+import { useUpdateBookMutation } from "../Books/BooksSlice";
 
 export default function SingleBook() {
   const { id } = useParams();
   const { data: aBook, isLoading, error } = useGetBookQuery(id);
   const navigate = useNavigate();
+  const [updateBook] = useUpdateBookMutation();
 
   const [singleBook, setSingleBook] = useState({});
 
   useEffect(() => {
-    // console.log("SingleBook", singleBook?.books);
     if (aBook?.book) {
-      console.log(aBook?.book);
       setSingleBook(aBook.book);
     }
   }, [aBook]);
 
-  const checkoutBook = () => {
-    //add functionality
-  };
+  async function handleCheckout(event) {
+    event.preventDefault();
+    try {
+      const result = await updateBook({ id, available: false });
+    } catch (error) {
+      console.error("Error during checkout", error);
+    }
+  }
+
+
   const returnToList = () => {
     navigate("/");
   };
@@ -34,7 +41,7 @@ export default function SingleBook() {
           <p>Available: {singleBook.available ? "✅" : "❌"}</p>
           <p>
             {localStorage.getItem("token") && singleBook.available ? (
-              <button className="checkoutbutton" onClick={() => checkoutBook}>
+              <button className="checkoutbutton" onClick={handleCheckout}>
                 Checkout
               </button>
             ) : (
