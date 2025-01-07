@@ -62,7 +62,7 @@ export default function Books() {
     setBookFilter({
       bookSearch: e.target.value,
     });
-    const temp = e.target.value;
+    const temp = e.target.value.toLowerCase();
     if (temp.length === 0) {
       setBookArr(bookList?.books);
     } else {
