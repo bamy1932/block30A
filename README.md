@@ -15,8 +15,12 @@ Amy Benner, Cory Snapp, Fred Choukairi, Rebecca Blanchard
 
 ### Built With:
 * [![React][React.js]][React-url]
-* Redux
-* MUI
+* [![React Router]][ReactRouter-url]
+* [![Redux]][Redux-url]
+* [![Visual Studio Code]][VSC-url]
+* [![Vite]][Vite-url]
+* [![Bootstrap]][Bootstrap-url]
+* [![JavaScript]][JavaScript-url]
 
 ---
 
@@ -46,3 +50,15 @@ Amy Benner, Cory Snapp, Fred Choukairi, Rebecca Blanchard
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
+[React Router]: https://img.shields.io/badge/React_Router-CA4245?logo=react-router&logoColor=white
+[ReactRouter-url]: https://reactrouter.com/
+[Redux]: https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=fff
+[Redux-url]: https://redux.js.org/
+[Bootstrap]:https://img.shields.io/badge/Bootstrap-7952B3?logo=bootstrap&logoColor=fff
+[Bootstrap-url]: https://getbootstrap.com
+[Vite]: https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=fff
+[Vite-url]: https://vite.dev/
+[Visual Studio Code]: https://custom-icon-badges.demolab.com/badge/Visual%20Studio%20Code-0078d7.svg?logo=vsc&logoColor=white
+[VSC-url]:https://code.visualstudio.com/
+[JavaScript]: https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=000
+[JavaScript-url]: https://www.javascript.com/
